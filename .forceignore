@@ -1,0 +1,4 @@
+.sf/
+node_modules/
+dist/
+coverage/

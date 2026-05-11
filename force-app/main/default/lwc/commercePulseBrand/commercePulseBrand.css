@@ -1,0 +1,39 @@
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+}
+
+.mark {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 12px 24px rgba(15, 61, 86, 0.18);
+}
+
+.copy {
+    display: grid;
+    gap: 0.15rem;
+}
+
+.title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.subtitle {
+    font-size: 0.76rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.78;
+}
+
+.brand.light {
+    color: #ffffff;
+}
+
+.brand.dark {
+    color: #0f3d56;
+}

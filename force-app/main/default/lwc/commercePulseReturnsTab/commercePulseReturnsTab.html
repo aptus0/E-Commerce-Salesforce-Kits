@@ -1,0 +1,29 @@
+<template>
+    <section class="workspace">
+        <div class="hero">
+            <c-commerce-pulse-brand subtitle="Returns Desk" theme="light"></c-commerce-pulse-brand>
+            <p class="eyebrow">Returns</p>
+            <h1>İade taleplerini ve refund disipliniyi tek ekranda yönet.</h1>
+            <p class="lede">Talep tarihi varsayılanları, refund otomasyonu ve order bağlamı geri dönüş akışını profesyonelleştirir.</p>
+            <div class="actions">
+                <lightning-button variant="brand" label="Open Returns" onclick={openReturns}></lightning-button>
+                <lightning-button label="Open Orders" onclick={openOrders}></lightning-button>
+            </div>
+        </div>
+        <div class="metric-grid">
+            <template for:each={metrics} for:item="metric">
+                <article class="metric" key={metric.label}>
+                    <span class="metric-value">{metric.value}</span>
+                    <span class="metric-label">{metric.label}</span>
+                </article>
+            </template>
+        </div>
+        <lightning-card title="Playbook" icon-name="utility:rotate">
+            <ul class="playbook">
+                <li>Requested Date alanı eksik geldiğinde handler bugünün tarihini atar.</li>
+                <li>Refunded durumunda tutar boşsa ilgili order toplamı kullanılır.</li>
+                <li>Refund amount validation rule’ı negatif iadeleri bloklar.</li>
+            </ul>
+        </lightning-card>
+    </section>
+</template>

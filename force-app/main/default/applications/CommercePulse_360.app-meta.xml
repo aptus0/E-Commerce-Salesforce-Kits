@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <description>CommercePulse 360 operations workspace for Salesforce + React commerce management.</description>
+    <formFactors>Large</formFactors>
+    <formFactors>Small</formFactors>
+    <label>CommercePulse 360</label>
+    <navType>Standard</navType>
+    <tabs>standard-home</tabs>
+    <tabs>CommercePulse_Overview</tabs>
+    <tabs>CommercePulse_Products</tabs>
+    <tabs>CommercePulse_Customers</tabs>
+    <tabs>CommercePulse_Orders</tabs>
+    <tabs>CommercePulse_Returns</tabs>
+    <tabs>CommercePulse_Campaigns</tabs>
+    <tabs>CommercePulse_Sync</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

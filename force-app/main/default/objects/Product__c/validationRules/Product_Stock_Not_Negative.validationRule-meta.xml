@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Stock_Not_Negative</fullName>
+    <active>true</active>
+    <description>Prevents negative stock values.</description>
+    <errorConditionFormula>Stock_Quantity__c &lt; 0</errorConditionFormula>
+    <errorDisplayField>Stock_Quantity__c</errorDisplayField>
+    <errorMessage>Stock quantity cannot be negative.</errorMessage>
+</ValidationRule>

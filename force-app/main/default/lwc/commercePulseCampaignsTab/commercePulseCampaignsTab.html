@@ -1,0 +1,29 @@
+<template>
+    <section class="workspace">
+        <div class="hero">
+            <c-commerce-pulse-brand subtitle="Campaign Studio" theme="light"></c-commerce-pulse-brand>
+            <p class="eyebrow">Campaigns</p>
+            <h1>Kampanya performansını gelir ve sipariş etkisiyle yorumla.</h1>
+            <p class="lede">Kupon kodu hijyeni, status defaulting ve revenue odaklı operasyon bu çalışma alanında birleşir.</p>
+            <div class="actions">
+                <lightning-button variant="brand" label="Open Campaigns" onclick={openCampaigns}></lightning-button>
+                <lightning-button label="Create Campaign Record" onclick={openNew}></lightning-button>
+            </div>
+        </div>
+        <div class="metric-grid">
+            <template for:each={metrics} for:item="metric">
+                <article class="metric" key={metric.label}>
+                    <span class="metric-value">{metric.value}</span>
+                    <span class="metric-label">{metric.label}</span>
+                </article>
+            </template>
+        </div>
+        <lightning-card title="Playbook" icon-name="utility:campaign">
+            <ul class="playbook">
+                <li>Discount code değerleri uppercase normalize edilerek raporlama standardı korunur.</li>
+                <li>Eksik status alanı sipariş ve gelir sinyaline göre handler ile tamamlanır.</li>
+                <li>Conversion ve revenue alanları operasyonel KPI olarak aynı kayıtta tutulur.</li>
+            </ul>
+        </lightning-card>
+    </section>
+</template>

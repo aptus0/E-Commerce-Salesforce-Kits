@@ -1,0 +1,11 @@
+.workspace { display:grid; gap:1.25rem; padding:1rem; background:linear-gradient(180deg,#f7fbff 0%,#eef6fb 100%); }
+.hero { display:grid; gap:0.8rem; padding:1.5rem; border-radius:1.25rem; background:linear-gradient(135deg,#0f3d56,#1d8a99); color:#fff; }
+.eyebrow { margin:0; font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; opacity:0.8; }
+.hero h1 { margin:0; font-size:1.9rem; line-height:1.1; }
+.lede { margin:0; max-width:46rem; line-height:1.6; }
+.actions { display:flex; gap:0.75rem; flex-wrap:wrap; }
+.metric-grid { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit,minmax(10rem,1fr)); }
+.metric { display:grid; gap:0.2rem; padding:1rem 1.1rem; border:1px solid #d9e7ef; border-radius:1rem; background:#fff; }
+.metric-value { font-size:1.5rem; font-weight:700; color:#0f3d56; }
+.metric-label { color:#4f6476; }
+.playbook { margin:0; padding:1rem 1rem 1rem 2rem; line-height:1.7; }

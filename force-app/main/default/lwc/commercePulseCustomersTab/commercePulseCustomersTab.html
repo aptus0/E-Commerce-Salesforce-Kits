@@ -1,0 +1,29 @@
+<template>
+    <section class="workspace">
+        <div class="hero">
+            <c-commerce-pulse-brand subtitle="Customer Intelligence" theme="light"></c-commerce-pulse-brand>
+            <p class="eyebrow">Customers</p>
+            <h1>Müşteri segmentasyonu ve ilişki sağlığını yönet.</h1>
+            <p class="lede">Harcamaya, son sipariş tarihine ve segment mantığına dayalı CRM görünümü bu sekmede toplanır.</p>
+            <div class="actions">
+                <lightning-button variant="brand" label="Open Customer List" onclick={openList}></lightning-button>
+                <lightning-button label="New Customer" onclick={openNew}></lightning-button>
+            </div>
+        </div>
+        <div class="metric-grid">
+            <template for:each={metrics} for:item="metric">
+                <article class="metric" key={metric.label}>
+                    <span class="metric-value">{metric.value}</span>
+                    <span class="metric-label">{metric.label}</span>
+                </article>
+            </template>
+        </div>
+        <lightning-card title="Playbook" icon-name="utility:people">
+            <ul class="playbook">
+                <li>Email değerleri normalize edilerek duplicate riski azaltılır.</li>
+                <li>Segment ataması toplam harcama ve recency bilgisine göre güncellenir.</li>
+                <li>Paid order hareketleri müşteri toplamını otomatik rollup eder.</li>
+            </ul>
+        </lightning-card>
+    </section>
+</template>

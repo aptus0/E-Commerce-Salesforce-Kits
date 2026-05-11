@@ -1,0 +1,29 @@
+<template>
+    <section class="workspace">
+        <div class="hero">
+            <c-commerce-pulse-brand subtitle="Order Operations" theme="light"></c-commerce-pulse-brand>
+            <p class="eyebrow">Orders</p>
+            <h1>Sipariş yaşam döngüsü ve satır toplamı otomasyonlarını yönet.</h1>
+            <p class="lede">Order ve order item trigger’ları bu workspace içinde operasyonel bir karar yüzeyine dönüşür.</p>
+            <div class="actions">
+                <lightning-button variant="brand" label="Open Orders" onclick={openOrders}></lightning-button>
+                <lightning-button label="Open Order Items" onclick={openItems}></lightning-button>
+            </div>
+        </div>
+        <div class="metric-grid">
+            <template for:each={metrics} for:item="metric">
+                <article class="metric" key={metric.label}>
+                    <span class="metric-value">{metric.value}</span>
+                    <span class="metric-label">{metric.label}</span>
+                </article>
+            </template>
+        </div>
+        <lightning-card title="Playbook" icon-name="utility:cart">
+            <ul class="playbook">
+                <li>Order status, payment status ve shipping status varsayılanları handler ile set edilir.</li>
+                <li>Order item insert ve update akışlarında unit price ürün kaydından hydrate edilir.</li>
+                <li>Delete ve undelete dahil toplam sipariş tutarı gerçek zamanlı yeniden hesaplanır.</li>
+            </ul>
+        </lightning-card>
+    </section>
+</template>

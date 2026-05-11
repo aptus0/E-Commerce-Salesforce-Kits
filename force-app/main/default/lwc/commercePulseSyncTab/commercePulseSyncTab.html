@@ -1,0 +1,29 @@
+<template>
+    <section class="workspace">
+        <div class="hero">
+            <c-commerce-pulse-brand subtitle="Integration Command" theme="light"></c-commerce-pulse-brand>
+            <p class="eyebrow">Sync Center</p>
+            <h1>Entegrasyon loglarını, payload kalitesini ve sağlık kontrolünü yönet.</h1>
+            <p class="lede">Sync log handler’ı payload sınırlarını uygular, bu workspace ise operasyon ekibine izlenebilir bir yüzey sunar.</p>
+            <div class="actions">
+                <lightning-button variant="brand" label="Open Sync Logs" onclick={openLogs}></lightning-button>
+                <lightning-button label="Open Overview" onclick={openOverview}></lightning-button>
+            </div>
+        </div>
+        <div class="metric-grid">
+            <template for:each={metrics} for:item="metric">
+                <article class="metric" key={metric.label}>
+                    <span class="metric-value">{metric.value}</span>
+                    <span class="metric-label">{metric.label}</span>
+                </article>
+            </template>
+        </div>
+        <lightning-card title="Playbook" icon-name="utility:connected_apps">
+            <ul class="playbook">
+                <li>Sync log kayıtlarında source, status ve operation type varsayılanları otomatik tamamlanır.</li>
+                <li>Uzun payload ve mesaj alanları güvenli sınırda truncate edilir.</li>
+                <li>Backend health ve sync test uçları bu objeye observability izi bırakır.</li>
+            </ul>
+        </lightning-card>
+    </section>
+</template>

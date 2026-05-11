@@ -1,0 +1,42 @@
+<template>
+    <section class="shell">
+        <div class="hero">
+            <c-commerce-pulse-brand subtitle="Connected Salesforce Workspace" theme="light"></c-commerce-pulse-brand>
+            <p class="eyebrow">Executive Overview</p>
+            <h1>Operasyon merkezi, otomasyon katmanı ve LWC workspace’leri hazır.</h1>
+            <p class="intro">
+                CommercePulse 360 artık obje modeli, trigger zinciri, test coverage ve altı ayrı
+                LWC navigation surface ile tam bir Salesforce commerce cockpit olarak kurgulandı.
+            </p>
+        </div>
+
+        <div class="grid">
+            <template for:each={metricCards} for:item="card">
+                <article class="metric" key={card.label}>
+                    <span class="metric-value">{card.value}</span>
+                    <span class="metric-label">{card.label}</span>
+                </article>
+            </template>
+        </div>
+
+        <lightning-card title="Workspace Navigation" icon-name="utility:apps">
+            <div class="link-grid">
+                <template for:each={navLinks} for:item="link">
+                    <button key={link.label} class="nav-link" data-target={link.target} onclick={handleNav}>
+                        <span>{link.label}</span>
+                        <small>{link.copy}</small>
+                    </button>
+                </template>
+            </div>
+        </lightning-card>
+
+        <lightning-card title="Automation Coverage" icon-name="utility:settings">
+            <ul class="checklist">
+                <li>Yedi obje için handler sınıfları veri hazırlığı ve lifecycle otomasyonu uygular.</li>
+                <li>Trigger seti order, item, product, customer, return, campaign ve sync log akışlarını kapsar.</li>
+                <li>Özel Apex test class’ları her objenin iş kuralını bağımsız doğrular.</li>
+                <li>Altı LWC nav item workspace’i operasyona obje ekranlarından daha güçlü bir giriş noktası sunar.</li>
+            </ul>
+        </lightning-card>
+    </section>
+</template>

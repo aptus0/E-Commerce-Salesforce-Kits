@@ -1,0 +1,29 @@
+<template>
+    <section class="workspace">
+        <div class="hero">
+            <c-commerce-pulse-brand subtitle="Catalog Workspace" theme="light"></c-commerce-pulse-brand>
+            <p class="eyebrow">Products</p>
+            <h1>Katalog, fiyat ve stok operasyonlarını merkezileştir.</h1>
+            <p class="lede">SKU standardizasyonu, stok disiplini ve ürün lansman hazırlığı bu çalışma alanında birleşir.</p>
+            <div class="actions">
+                <lightning-button variant="brand" label="Open Product List" onclick={openList}></lightning-button>
+                <lightning-button label="New Product" onclick={openNew}></lightning-button>
+            </div>
+        </div>
+        <div class="metric-grid">
+            <template for:each={metrics} for:item="metric">
+                <article class="metric" key={metric.label}>
+                    <span class="metric-value">{metric.value}</span>
+                    <span class="metric-label">{metric.label}</span>
+                </article>
+            </template>
+        </div>
+        <lightning-card title="Playbook" icon-name="utility:inventory">
+            <ul class="playbook">
+                <li>Ürün kaydı açıldığında SKU uppercase normalize edilir.</li>
+                <li>Eksik kategori ve aktiflik alanları handler tarafından tamamlanır.</li>
+                <li>Stok validasyonu negatif değerleri org seviyesinde engeller.</li>
+            </ul>
+        </lightning-card>
+    </section>
+</template>
