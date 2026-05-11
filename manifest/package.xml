@@ -42,6 +42,7 @@
         <members>CommercePulseTestDataFactory</members>
         <members>CommercePulseTriggerSupport</members>
         <members>CommercePulseTriggerSupportTest</members>
+        <members>CommercePulseWorkspaceController</members>
         <members>CommerceOrderTriggerHandler</members>
         <members>CustomerProfileTriggerHandler</members>
         <members>CustomerProfileTriggerHandlerTest</members>
