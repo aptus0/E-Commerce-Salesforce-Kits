@@ -25,5 +25,16 @@
                 <li>Stok validasyonu negatif değerleri org seviyesinde engeller.</li>
             </ul>
         </lightning-card>
+        <lightning-card title="Live Catalog Snapshot" icon-name="utility:table">
+            <template if:true={isLoading}>
+                <div class="state-message">Loading product records...</div>
+            </template>
+            <template if:true={workspace.error}>
+                <div class="state-message error">{errorMessage}</div>
+            </template>
+            <template if:true={rows}>
+                <lightning-datatable key-field="id" data={rows} columns={columns} hide-checkbox-column></lightning-datatable>
+            </template>
+        </lightning-card>
     </section>
 </template>

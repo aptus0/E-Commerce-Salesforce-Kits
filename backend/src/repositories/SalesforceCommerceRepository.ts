@@ -149,7 +149,7 @@ function mapCampaign(record: CampaignRecord): CampaignPerformance {
     discountCode: record.Discount_Code__c,
     revenueGenerated: record.Revenue_Generated__c ?? 0,
     ordersCount: record.Orders_Count__c ?? 0,
-    conversionRate: record.Conversion_Rate__c ?? 0,
+    conversionRate: (record.Conversion_Rate__c ?? 0) * 100,
     status: record.Status__c
   };
 }

@@ -99,3 +99,12 @@
     color: #213547;
     line-height: 1.7;
 }
+
+.state-message {
+    padding: 1rem;
+    color: #4b5f72;
+}
+
+.error {
+    color: #a61b1b;
+}

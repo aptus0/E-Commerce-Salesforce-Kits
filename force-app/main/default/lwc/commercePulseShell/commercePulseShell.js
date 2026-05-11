@@ -1,5 +1,6 @@
-import { LightningElement } from 'lwc';
+import { LightningElement, wire } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
+import getOverviewData from '@salesforce/apex/CommercePulseWorkspaceController.getOverviewData';
 
 const NAV_LINKS = [
     {
@@ -35,16 +36,52 @@ const NAV_LINKS = [
 ];
 
 export default class CommercePulseShell extends NavigationMixin(LightningElement) {
-    metricCards = [
-        { label: 'Custom Objects', value: '7' },
-        { label: 'Apex Triggers', value: '7' },
-        { label: 'Handler Classes', value: '7' },
-        { label: 'Test Classes', value: '7' },
-        { label: 'LWC Nav Tabs', value: '6' },
-        { label: 'Frontend Surfaces', value: 'React + LWC' }
+    recentLogColumns = [
+        { label: 'Source', fieldName: 'sourceSystem' },
+        { label: 'Operation', fieldName: 'operationType' },
+        { label: 'Status', fieldName: 'status' },
+        { label: 'Created', fieldName: 'createdAt', type: 'date', typeAttributes: { year: 'numeric', month: 'short', day: '2-digit', hour: '2-digit', minute: '2-digit' } }
     ];
 
     navLinks = NAV_LINKS;
+
+    @wire(getOverviewData) overview;
+
+    get metricCards() {
+        const data = this.overview.data;
+
+        if (!data) {
+            return [
+                { label: 'Products', value: '...' },
+                { label: 'Customers', value: '...' },
+                { label: 'Orders', value: '...' },
+                { label: 'Returns', value: '...' },
+                { label: 'Campaigns', value: '...' },
+                { label: 'Sync Logs', value: '...' }
+            ];
+        }
+
+        return [
+            { label: 'Products', value: String(data.productCount) },
+            { label: 'Customers', value: String(data.customerCount) },
+            { label: 'Orders', value: String(data.orderCount) },
+            { label: 'Returns', value: String(data.returnCount) },
+            { label: 'Campaigns', value: String(data.campaignCount) },
+            { label: 'Sync Logs', value: String(data.syncLogCount) }
+        ];
+    }
+
+    get recentLogs() {
+        return this.overview.data?.recentSyncLogs ?? [];
+    }
+
+    get isLoading() {
+        return !this.overview.data && !this.overview.error;
+    }
+
+    get errorMessage() {
+        return this.overview.error?.body?.message || this.overview.error?.message || 'Unable to load overview data.';
+    }
 
     handleNav(event) {
         const apiName = event.currentTarget.dataset.target;

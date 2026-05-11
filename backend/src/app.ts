@@ -9,9 +9,17 @@ import { apiRouter } from './routes';
 
 export function createApp() {
   const app = express();
+  const corsOptions =
+    config.nodeEnv === 'production'
+      ? {
+          origin: config.corsOrigins
+        }
+      : {
+          origin: true
+        };
 
   app.use(helmet());
-  app.use(cors({ origin: config.corsOrigin }));
+  app.use(cors(corsOptions));
   app.use(express.json({ limit: '1mb' }));
   app.use(morgan(config.nodeEnv === 'production' ? 'combined' : 'dev'));
 

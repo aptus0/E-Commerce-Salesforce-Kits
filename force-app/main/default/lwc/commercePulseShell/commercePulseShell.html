@@ -38,5 +38,17 @@
                 <li>Altı LWC nav item workspace’i operasyona obje ekranlarından daha güçlü bir giriş noktası sunar.</li>
             </ul>
         </lightning-card>
+
+        <lightning-card title="Recent Sync Activity" icon-name="utility:connected_apps">
+            <template if:true={isLoading}>
+                <div class="state-message">Loading workspace data...</div>
+            </template>
+            <template if:true={overview.error}>
+                <div class="state-message error">{errorMessage}</div>
+            </template>
+            <template if:true={recentLogs}>
+                <lightning-datatable key-field="id" data={recentLogs} columns={recentLogColumns} hide-checkbox-column></lightning-datatable>
+            </template>
+        </lightning-card>
     </section>
 </template>

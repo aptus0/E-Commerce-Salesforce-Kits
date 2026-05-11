@@ -9,3 +9,5 @@
 .metric-value { font-size:1.5rem; font-weight:700; color:#7f243f; }
 .metric-label { color:#815262; }
 .playbook { margin:0; padding:1rem 1rem 1rem 2rem; line-height:1.7; }
+.state-message { padding:1rem; color:#7c4c5f; }
+.error { color:#a61b1b; }

@@ -25,6 +25,10 @@ export const config = {
   port: getNumber('PORT', 5000),
   nodeEnv: process.env.NODE_ENV ?? 'development',
   corsOrigin: process.env.CORS_ORIGIN ?? 'http://localhost:5173',
+  corsOrigins: (process.env.CORS_ORIGIN ?? 'http://localhost:5173')
+    .split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean),
   useMockData: getBoolean('USE_MOCK_DATA', true),
   lowStockThreshold: getNumber('LOW_STOCK_THRESHOLD', 5),
 

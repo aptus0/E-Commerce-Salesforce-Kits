@@ -25,5 +25,16 @@
                 <li>Paid order hareketleri müşteri toplamını otomatik rollup eder.</li>
             </ul>
         </lightning-card>
+        <lightning-card title="Live Customer Snapshot" icon-name="utility:groups">
+            <template if:true={isLoading}>
+                <div class="state-message">Loading customer records...</div>
+            </template>
+            <template if:true={workspace.error}>
+                <div class="state-message error">{errorMessage}</div>
+            </template>
+            <template if:true={rows}>
+                <lightning-datatable key-field="id" data={rows} columns={columns} hide-checkbox-column></lightning-datatable>
+            </template>
+        </lightning-card>
     </section>
 </template>
